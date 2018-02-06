@@ -101,6 +101,23 @@ Command | Description
 `y` | yank (copy) selected text
 `d` | delete selected text
 
+### Search and Replace
+
+Command | Description
+--- | ---
+`/` | search for pattern
+`n` | jump to next result
+`N` | jump to previous result
+`:%s/old/new/g` | replace all **old** with **new** in file
+
+### Search in Multiple Files
+
+Command | Description
+--- | ---
+`:vimgrep /foo/ **/*` | search for pattern in multiple files
+:cn | jump to next result
+:cp | jump to previous match
+
 ## NERDTree
 
 Command | Description
@@ -113,19 +130,77 @@ Command | Description
 `R` | refresh current root
 `I` | toggle hidden file visibility
 `Ctrl` + `ww` | switch between panes in a window
-`gt` | switch to next tab
-`gT` | switch to previous tab
+`:ls` | list buffers
+`:bn` | switch to next buffer 
+`:bp` | switch to previous buffer
+`:bp 2` | switch to buffer #2
 
-Note: 
-Add the following to `~.vimrc` for the following shortcuts which are easier to remember than above:
+> Add the following to `~/.vimrc` to toggle NERDTree file explorer:
 
 ```
-map  <C-l> :tabn<CR>
-map  <C-h> :tabp<CR>
-map  <C-n> :tabnew<CR>
+map <C-e> :NERDTreeToggle<CR>
 ```
 
 Command | Description
 --- | ---
-`Ctrl` + `l` | switch to next tab
-`Ctrl` + `h` | switch to previous tab
+`Ctrl` + `e` | toggle NERDTree file explorer
+
+> Note: In Vim, [buffers act more like tabs](https://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers) and tabs act more like a collection of these buffers. 
+
+Command | Description
+--- | ---
+`gt` | switch to next tab
+`gT` | switch to previous tab
+ 
+> Add the following to `~.vimrc` for the following shortcuts which are easier to remember than above:
+
+```
+map  <C-l> :bn<CR>
+map  <C-h> :bp<CR>
+```
+
+Command | Description
+--- | ---
+`Ctrl` + `l` | switch to next buffer
+`Ctrl` + `h` | switch to previous buffer
+
+## CtrlP
+
+Fuzzy finder, find and jump to files quickly
+
+Command | Description
+--- | ---
+`Ctrl` + `p` | bring up search
+
+## vim-commenter
+
+Command | Description
+--- | ---
+`gcc` | comment/uncomment [count] lines
+`gc<motion>` | comment/uncomment lines that motion goes over
+`<Visual>gc` | comment/uncomment the selected lines
+
+## vim-multiple-cursors
+
+Multiple selection style from Sublime
+
+Command | Description
+--- | ---
+`Ctrl` + `n` | Press to select each occurance on the page, then press `v` to go back to normal mode and continue editing
+
+## Tagbar
+
+Class outline viewer for Vim
+
+Command | Description
+--- | ---
+`:TagbarToggle` | toggle class outline
+
+## Emmet 
+
+Usage: [docs](https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL)
+
+Command | Description
+--- | ---
+`Ctrl` + `y` + `,` | Enter in prompt (e.g. li*3) and hit this sequence
+`Ctrl` + `y` + `n` | Go to the next editable area 
