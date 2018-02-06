@@ -4,29 +4,28 @@ Default prefix: C-b (`CTRL` + `b`)
 
 ### Windows
 
-Action | Command
+Command | Description
 --- | ---
-Create new window | prefix +  `c`
-Cycle to next window | prefix + `n`
-Cycle to previous window | prefix + `p`
+prefix +  `c` | Create new window
+prefix + `n` | Cycle to next window
+prefix + `p` | Cycle to previous window
 
 ### Panes
 
-Action | Command
+Command | Description
 --- | ---
-Split vertically | prefix + `%`
-Split horizontally | prefix + `"`
-Switch pane | prefix + `<arrow>`
-Close pane | prefix + `d`
-Toggle full screen pane | prefix + `z`
-Resize pane in direction of arrow | prefix + `C-<arrow key>`
+prefix + `%` | Split vertically
+prefix + `"` | Split horizontally
+prefix + `<arrow>` | Switch pane
+prefix + `d` | Close pane
+prefix + `z` | Toggle full screen pane
+prefix + `C-<arrow key>` | Resize pane in direction of arrow
 
 ### Sessions
 
-Action | Command
+Command | Description
 --- | ---
-Detach current session | prefix + `d`
-Choose a session to detach | prefix + `D`
-
-- To see a list of active sessions: `tmux ls`
-- To attach an open session: `tmux attach -t <number>`
+prefix + `d` | Detach current session
+prefix + `D` | Choose session to detach
+`tmux ls` | See list of active sessions
+`tmux attach -t <number>` | Attach open session
