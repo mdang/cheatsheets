@@ -51,7 +51,55 @@ Command | Description
 `ea` | append at end of word
 `Esc` | escape insert mode
 
+### Editing
 
+Command | Description
+--- | ---
+`r` | replace single character
+`cc` | replace entire line
+`cw` | change to end of word
+`c$` | change to end of line
+`u` | undo
+`Ctrl` + `r` | redo
+`.` | repeat last command 
+
+### Cut and Paste
+
+Command | Description
+--- | ---
+`yy` | yank (copy) a line
+`2yy` | yank (copy) two lines
+`y$` | yank (copy) to end of line
+`dd` | delete (cut) a line
+`2dd` | delete (cut) two lines
+`d$` | delete (cut) to end of line
+`x` | delete (cut) character
+`p` | paste after cursor
+`P` | paste before cursor
+
+### Visual Mode 
+
+Command | Description
+--- | ---
+`v` | starts visual mode
+`V` | starts line visual mode
+`Ctrl` + `v` | starts block visual mode 
+`o` | move to other end of selection
+`aw` | select word
+`ab` | select block with ()
+`aB` | select block with {}
+`ib` | select inner block with ()
+`iB` | select inner block with {}
+`Esc` | escape visual mode
+
+### Visual Mode Commands
+
+Command | Description
+--- | ---
+`>` | tab right
+`<` | tab left
+`y` | yank (copy) selected text
+`d` | delete selected text
 
 ## NERDTree
 
