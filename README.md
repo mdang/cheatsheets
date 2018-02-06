@@ -1,1 +1,1 @@
-# nix-cheatsheets
+# Cheatsheets
