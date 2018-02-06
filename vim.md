@@ -103,3 +103,29 @@ Command | Description
 
 ## NERDTree
 
+Command | Description
+--- | ---
+`o` | open 
+`t` | open file or directory in new tab
+`i` | open file or directory split
+`C` | change tree root to the selected directory
+`u` | move tree root up one directory
+`R` | refresh current root
+`I` | toggle hidden file visibility
+`Ctrl` + `ww` | switch between panes in a window
+`gt` | switch to next tab
+`gT` | switch to previous tab
+
+Note: 
+Add the following to `~.vimrc` for the following shortcuts which are easier to remember than above:
+
+```
+map  <C-l> :tabn<CR>
+map  <C-h> :tabp<CR>
+map  <C-n> :tabnew<CR>
+```
+
+Command | Description
+--- | ---
+`Ctrl` + `l` | switch to next tab
+`Ctrl` + `h` | switch to previous tab
