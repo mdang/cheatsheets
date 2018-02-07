@@ -78,7 +78,7 @@ Create a container based on the image
 docker run -p 3000:3000 -ti node-test:0.1
 ```
 
-```
+```Dockerfile
 # docker-compose.yml
 version: "2"
 services:
