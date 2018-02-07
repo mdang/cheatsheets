@@ -90,7 +90,7 @@ services:
       - ./:/app
     # Expose port to the client machine
     ports:
-      - "4000:4000"
+      - "3000:3000"
     # Link services between containers
     links:
       - mongo
@@ -118,12 +118,8 @@ $ docker-compose up
 
 Uncomment the MongoDB related lines in **index.js**
 
-
-
-## Nodejs + Postgres 
-
-
 ## Reference
 
 - https://medium.com/@sunnykay/docker-development-workflow-node-express-mongo-4bb3b1f7eb1e
+- https://runnable.com/blog/9-common-dockerfile-mistakes
 - https://runnable.com/blog/9-common-dockerfile-mistakes
