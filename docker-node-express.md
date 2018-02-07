@@ -1,4 +1,4 @@
-# Docker w/ Nodejs & MongoDB
+# Docker w/ Nodejs + Express
 
 ### Prerequisites
 
@@ -16,16 +16,13 @@ $ npm init
 > "start": "node index.js"
 
 ```
-$ npm i express mongoose nodemon --save
+$ npm i express nodemon --save
 ```
 
 ```js
 // index.js
 const express = require('express');
 const app = express();
-
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://mongo:27017');
 
 app.get('/', (req, res) => {
   res.send('Hello, World');
@@ -36,12 +33,11 @@ app.listen(8080, () => {
 });
 ```
 
-## Nodejs + MongoDB
+## Nodejs
 
 Create our base image 
 
 ```Dockerfile
-# Dockerfile
 # As of now, the latest runtime supported on AWS Lambda
 FROM node:6.10.3
 
@@ -66,44 +62,16 @@ EXPOSE 8080
 CMD ["npm", "start"]
 ```
 
-Add in external services/dependencies 
-
-```Dockerfile
-# docker-compose.yml
-version: "2"
-services:
-  web:
-    # Build image if not already present
-    build: .
-    # Mount the code so we can work with it like a normal dev environment
-    volumes:
-      - ./:/app
-    # Expose port to the client machine
-    ports:
-      - "8080:8080"
-    # Link services between containers
-    links:
-      - mongo
-  # The ‘mongo’ service name is also added to the /etc/hosts in the container, allowing access to the service as such: mongodb://mongo:27017
-  mongo:
-    # Use the official MongoDB image
-    image: mongo
-    ports:
-      - "27017:27017"
-    # Allow the mongo database container to share the /data/db mounted volume across containers
-    volumes_from:
-      - mongodata
-  # Abstracting the data volume to its own container allows for portability and seperate containers to share the same db
-  mongodata:
-    image: tianon/true
-    volumes:
-      - /data/db
-```
-
-Create the app container 
+Create the image
 
 ```
-$ docker-compose up
+docker build -t node-test:0.1 .
+```
+
+Create a container based on the image
+
+```
+docker run -p 3000:3000 -ti node-test:0.1
 ```
 
 ## Reference
