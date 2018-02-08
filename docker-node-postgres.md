@@ -1,4 +1,4 @@
-# Docker w/ Nodejs + Express
+# Docker w/ Nodejs & Postgres
 
 ### Prerequisites
 
@@ -16,7 +16,7 @@ $ npm init
 > "start": "node index.js"
 
 ```
-$ npm i express nodemon --save
+$ npm i express --save
 ```
 
 ```js
@@ -33,11 +33,12 @@ app.listen(8080, () => {
 });
 ```
 
-## Nodejs
+## Nodejs + Postgres
 
 Create our base image 
 
 ```Dockerfile
+# Dockerfile
 # As of now, the latest runtime supported on AWS Lambda
 FROM node:6.10.3-alpine
 
@@ -62,16 +63,40 @@ EXPOSE 8080
 CMD ["npm", "start"]
 ```
 
-Create the image
+Add in external services/dependencies 
+
+```Dockerfile
+# docker-compose.yml
+version: "2"
+services:
+  web:
+    # Build image if not already present
+    build: .
+    # Mount paths between the host and the container
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    # Expose port to the client machine
+    ports:
+      - "8080:8080"
+    # Don't start the "web" service until "postgres" service is up and running
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://todoapp@postgres/todos
+  postgres:
+    image: postgres:9.6.2-alpine
+    environment:
+      # Creates the user `todoapp` as the default user for PostgreSQL
+      POSTGRES_USER: todoapp
+      # Create the default database as `todos`
+      POSTGRES_DB: todos
+```
+
+Create the app container 
 
 ```
-docker build -t node-test:0.1 .
-```
-
-Create a container based on the image
-
-```
-docker run -p 3000:3000 -ti node-test:0.1
+$ docker-compose up
 ```
 
 ## Reference

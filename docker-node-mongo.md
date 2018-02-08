@@ -43,7 +43,7 @@ Create our base image
 ```Dockerfile
 # Dockerfile
 # As of now, the latest runtime supported on AWS Lambda
-FROM node:6.10.3
+FROM node:6.10.3-alpine
 
 # Create the directory app and dependencies will be installed to
 RUN mkdir /app
