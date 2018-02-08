@@ -110,4 +110,3 @@ $ docker-compose up
 
 - https://medium.com/@sunnykay/docker-development-workflow-node-express-mongo-4bb3b1f7eb1e
 - https://runnable.com/blog/9-common-dockerfile-mistakes
-- https://runnable.com/blog/9-common-dockerfile-mistakes

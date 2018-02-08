@@ -78,4 +78,3 @@ docker run -p 3000:3000 -ti node-test:0.1
 
 - https://medium.com/@sunnykay/docker-development-workflow-node-express-mongo-4bb3b1f7eb1e
 - https://runnable.com/blog/9-common-dockerfile-mistakes
-- https://runnable.com/blog/9-common-dockerfile-mistakes
